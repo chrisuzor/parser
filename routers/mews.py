@@ -17,7 +17,7 @@ async def parse_data(data: MewsData):
     """
     print('Request received to send data to sender')
     print(data)
-    task = send_mews_object_to_sender.apply_async(args=[data])
+    task = send_mews_object_to_sender.apply_async(args=[data.model_dump()])
     return JSONResponse({"task_id": task.id})
 
 
